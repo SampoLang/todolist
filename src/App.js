@@ -18,6 +18,11 @@ function Todolist() {
     event.preventDefault();
     setTodos([todo, ...todos]);
     setTodo({ description: "", date: "" });
+
+  }
+  const deleteTodo = (index) => {
+    const updatedTodo = [...todos].filter((todo, i) => i !== index)
+    setTodos(updatedTodo);
   }
   return (
     <div className="App">
@@ -33,16 +38,17 @@ function Todolist() {
         </form>
       </fieldset>
       <table>
-        <tr>
-          <th>Date</th>
-          <th>Description</th>
-        </tr>
         <tbody>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+          </tr>
           {
             todos.map((todo, index) =>
               <tr key={index}>
                 <td>{todo.date}</td>
                 <td>{todo.description}</td>
+                <button onClick={() => deleteTodo(index)}>Delete</button>
               </tr>)
           }
         </tbody>
