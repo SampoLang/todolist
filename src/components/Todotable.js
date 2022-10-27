@@ -1,5 +1,5 @@
 import react from "react";
-
+import { Button } from "@mui/material";
 const Todotable = (props) => {
     return (
         <div>
@@ -16,7 +16,7 @@ const Todotable = (props) => {
                                 <td>{todo.date}</td>
                                 <td>{todo.description}</td>
                                 <td>
-                                    <button onClick={() => props.deleteTodo(index)}>Delete</button>
+                                    <button onClick={() => props.deleteTodo(index)} >Delete</button>
                                 </td>
                             </tr>)
                     }
